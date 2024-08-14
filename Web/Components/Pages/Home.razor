@@ -1,0 +1,88 @@
+﻿@page "/"
+@rendermode InteractiveServer
+<link rel="stylesheet" href="css/home.css" asp-append-version="true" />
+<PageTitle>Home</PageTitle>
+
+@if(Products == null){
+    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+else
+{
+    <div class="container">
+        @* Header *@
+        <nav class="navbar custom-navbar">
+            <div class="container-fluid d-flex justify-content-center">
+                <EditForm Model="@ProductSearch" OnSubmit="Search" class="w-100">
+                    <div class="custom-search-form">
+                        <input class="form-control me-2 custom-search-input" type="search" placeholder="Search" aria-label="Search" @bind-value="ProductSearch.Name" />
+                        <button class="btn btn-outline-light custom-search-button" type="submit">Search</button>
+                    </div>
+                </EditForm>
+            </div>
+        </nav>
+        <br>
+        @* <MudText Typo="Typo.h4" Class="text-center">Welcome to Web Food</MudText> *@
+        <EditForm Model="@ProductSearch">
+            <div class="category-button-container">
+                <button type="button" class="btn btn-outline-light custom-category-button" @onclick="() => SearchByCategory(Guid.Empty)">
+                    Tất cả
+                </button>
+                @foreach (var category in Category)
+                {
+                    <button type="button" class="btn btn-outline-light custom-category-button" @onclick="() => SearchByCategory(category.Id)">
+                        @category.Name
+                    </button>
+                }
+            </div>
+        </EditForm>
+        <br>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/poster-quang-cao-web-do-an.jpg" class="d-block w-100" alt="..." style="height: 400px;">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/in-banner-quang-cao-do-an-7-1.jpg" class="d-block w-100" alt="..." style="height: 400px;">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/in-banner-quang-cao-do-an-3.jpg" class="d-block w-100" alt="..." style="height: 400px;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+
+        <div class="container">
+            <MudGrid Class="row mt-3">
+                @foreach (var item in Products)
+                {
+                    <MudItem xs="12" sm="6" md="3" Class="mb-2">
+                        <MudLink Href="@($"card/{item.Id}")" Class="text-decoration-none">
+                            <MudPaper Class="card product-card">
+                                <MudImage Src="@item.Image" Alt="Alternate Text" Class="img-thumbnail product-image" />
+                                <MudPaper Class="card-body">
+                                    <MudText Typo="Typo.h5" Class="card-title mb-3">@item.Name</MudText>
+                                    <MudText Typo="Typo.body1" Class="card-text"><b>@item.Price.ToString("C")</b></MudText>
+                                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mt-2">Add to Cart</MudButton>
+                                </MudPaper>
+                            </MudPaper>                       
+                        </MudLink>
+                    </MudItem>
+                }
+            </MudGrid>
+        </div>
+    </div>
+
+}

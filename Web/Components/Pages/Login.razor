@@ -1,0 +1,43 @@
+﻿@page "/login"
+@rendermode InteractiveServer
+<link rel="stylesheet" href="css/login.css" asp-append-version="true" />
+@if(ShowErrors){
+    <MudAlert Severity="Severity.Error"> 
+        <MudText>@ErrorMessage</MudText>
+    </MudAlert>
+}
+else
+{
+    <MudContainer>
+        <section>
+            <div class="form-box">
+                <div class="form-value">
+                    <EditForm Model="LoginRequest" OnSubmit="HandleLoginUser">
+                        <h2>Login</h2>
+                        <div class="inputbox">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="text" @bind-value="LoginRequest.Username" required>
+                            <label for="">User Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" @bind-value="LoginRequest.Password" required>
+                            <label for="">Password</label>
+                        </div>
+                        <div class="forget">
+                            <label for=""><input type="checkbox">Remember Me <a href="#">Forget Password</a></label>
+                        </div>
+                        <button type="submit">Log in</button>
+                        <div class="register">
+                            <p>Don't have an account? <a href="#">Register</a></p>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </MudContainer>
+
+}
+

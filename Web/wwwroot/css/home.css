@@ -1,0 +1,77 @@
+﻿.custom-navbar {
+    background-image: url('../img/Banner2.jpg'); /* Đường dẫn đến hình nền của navbar */
+    background-size: cover; /* Đảm bảo hình nền bao phủ toàn bộ phần tử */
+    background-position: center; /* Căn giữa hình nền */
+    height: 200px; /* Chiều cao của phần tử */
+    width: 100%; /* Để phần tử chiếm toàn bộ chiều rộng */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    padding: 10px 20px; /* Padding để tạo khoảng cách bên trong navbar */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Viền dưới của navbar với màu trắng mờ */
+}
+
+.custom-search-form {
+    display: flex;
+    justify-content: center; /* Căn giữa form tìm kiếm */
+    width: 100%;
+    max-width: 600px; /* Đặt chiều rộng tối đa cho form */
+    margin: 0 auto; /* Căn giữa form trong navbar */
+}
+
+.custom-search-input {
+    border-radius: 20px; /* Góc bo tròn cho ô tìm kiếm */
+    padding: 10px 15px; /* Padding bên trong ô tìm kiếm */
+    border: 1px solid #ced4da; /* Màu viền của ô tìm kiếm */
+    flex-grow: 1;
+}
+
+.custom-search-button {
+    border-radius: 20px; /* Góc bo tròn cho nút tìm kiếm */
+    padding: 10px 20px; /* Padding bên trong nút tìm kiếm */
+    background-color: #28a745; /* Màu nền của nút tìm kiếm (xanh lá cây) */
+    color: #fff; /* Màu chữ của nút tìm kiếm */
+    border: none; /* Xóa viền của nút tìm kiếm */
+    margin-left: 10px; /* Khoảng cách giữa ô tìm kiếm và nút tìm kiếm */
+}
+
+    .custom-search-button:hover {
+        background-color: #218838; /* Màu nền của nút khi hover (xanh lá cây đậm hơn) */
+    }
+
+
+.product-image {
+    width: 100%;
+    height: 200px; /* Đặt chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh để phù hợp với kích thước */
+    transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà */
+}
+
+.product-card {
+    transition: box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà */
+}
+
+    .product-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng shadow khi hover */
+    }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05); /* Phóng to ảnh khi hover */
+        }
+
+.category-button-container {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút theo chiều ngang */
+    flex-wrap: wrap; /* Cho phép các nút chuyển sang dòng tiếp theo nếu cần */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+.custom-category-button {
+    border-radius: 20px; /* Các góc bo tròn cho các nút */
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+    .custom-category-button:hover {
+        background-color: #218838;
+    }

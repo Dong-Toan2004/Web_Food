@@ -1,0 +1,78 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemingProvider />
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudText Typo="Typo.h5" Class="ml-3">Web Food</MudText>
+        <MudSpacer />
+        <!-- Menu ngang được thêm vào đây -->
+        <div class="horizontal-menu">
+            <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+            <MudNavLink Href="counter" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Counter</MudNavLink>
+            <MudNavLink Href="weather" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Weather</MudNavLink>
+            <MudNavLink Href="login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AccountCircle">Login</MudNavLink>
+            <!-- Thêm các liên kết khác nếu cần -->
+        </div>
+    </MudAppBar>
+        <!-- Bạn có thể giữ nguyên menu ở đây hoặc loại bỏ nếu không cần thiết -->
+    <MudMainContent Class="mt-16 pa-4">
+        @Body
+    </MudMainContent>
+    <footer class="bg-dark text-light text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="~/img/logo.jpg" alt="Logo" class="footer-logo">
+                    <p>Trường Cao Đẳng FPT<br>Hà Nội, Việt Nam</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Liên hệ</h5>
+                    <p>Email: dongminhtoan0972@gmail.com<br>Điện thoại: (123) 456-7890</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Theo dõi chúng tôi</h5>
+                    <p>Đăng ký để nhận thông tin cập nhật về sản phẩm và dịch vụ của chúng tôi.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-warning" type="button">Đăng ký</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <hr class="my-4">
+            <p>&copy; 2024 Đồng Minh Toản PH33341.</p>
+        </div>
+    </footer>
+</MudLayout>
+
+<style>
+    .horizontal-menu {
+        display: flex;
+        gap: 16px; /* Khoảng cách giữa các liên kết */
+        margin-right: 20px; /* Khoảng cách bên phải để căn lề với phần tử khác nếu cần */
+    }
+    /* CSS tùy chỉnh để làm đẹp footer */
+    footer {
+        background-color: #343a40; /* Màu nền */
+        color: #fff; /* Màu chữ */
+        padding: 60px 0; /* Khoảng cách padding */
+    }
+
+    .footer-logo {
+        max-width: 100px; /* Độ rộng tối đa cho logo */
+    }
+
+    /* Tùy chỉnh một số kiểu chữ */
+    h5 {
+        color: #ffc107; /* Màu chữ cho tiêu đề */
+    }
+
+    p {
+        font-size: 16px; /* Kích thước chữ cho đoạn văn bản */
+    }
+</style>
